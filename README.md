@@ -1,5 +1,20 @@
 # [miZy - tiny fast embedded linux](https://hyphop.github.io/mizy/)
 
+## Orange Pi Zero H2+ kernel upgrade
+
+This personal fork tracks a kernel upgrade while preserving miZy, XR819 Wi-Fi,
+and the HTTPS CONNECT proxy. **The device still runs Linux 3.4.113+; no new
+kernel has been flashed.**
+
+See [current status and next steps](docs/kernel-upgrade/STATUS.md).
+The `kernel` submodule tracks [Eden-Sun/miZy-linux-kernel](https://github.com/Eden-Sun/miZy-linux-kernel).
+
+Clone this branch and its kernel sources with:
+
+```sh
+git clone --recurse-submodules --branch upgrade/h2plus-mainline https://github.com/Eden-Sun/miZy.git
+```
+
 ![miZy - tiny fast embedded linux](pics/mizy_linux.gif)
 
 ## Support Us - Donate
