@@ -11,8 +11,8 @@ Orange Pi Zero H2+ 已從 Linux 3.4.113+ 升級至 **6.12.113-mizy-h2plus**，
 最終修正後已完成不需手動介入的軟體重啟測試：
 
 - `uname -r`：`6.12.113-mizy-h2plus`，四核心、512 MiB RAM。
-- XR819 自動連回 WITSPER，WPA2-PSK/CCMP，狀態 `COMPLETED`。
-- 原 Wi-Fi MAC 和 DHCP IP `192.168.2.123` 保留；DNS 可解析外網。
+- XR819 自動連回 保存的 SSID，WPA2-PSK/CCMP，狀態 `COMPLETED`。
+- 原 Wi-Fi MAC 和 DHCP 位址保留；DNS 可解析外網。
 - `/dev/net/tun` 存在。
 - 反向 SSH 自動重連，經 VPS 代理實測 `CONNECT=200 HTTPS=200`。
 - kernel、rootfs、DTB、boot script 寫入後均通過 `mtd verify`；最後補寫
@@ -60,3 +60,10 @@ UART 保持 115200/8N1，U-Boot 保持 2017.01-hyphop，沒有偵測到 TF 卡�
 
 先前 legacy kexec 未能啟動新核心；實機驗證採 U-Boot legacy uImage/uInitrd，
 原 U-Boot 不支援 FIT。Armbian 只曾作為驅動方案參考。
+
+## XR819 穩定性查核
+
+2026-10-21 查核：現用 xradio commit 是上游最新合併版本，與 Armbian 相同。
+運作約 37 分鐘仍保持連線，但日誌累計 67 次 missed interrupt。20 次 gateway
+ping 無丟包，不能據此宣稱長期穩定。未合併的 ARP、HT 接收和韌體修正
+尚未安裝；詳見 kernel/mainline/XR819-STATUS.md。
