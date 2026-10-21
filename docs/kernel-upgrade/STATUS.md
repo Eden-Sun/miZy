@@ -67,3 +67,12 @@ UART 保持 115200/8N1，U-Boot 保持 2017.01-hyphop，沒有偵測到 TF 卡�
 運作約 37 分鐘仍保持連線，但日誌累計 67 次 missed interrupt。20 次 gateway
 ping 無丟包，不能據此宣稱長期穩定。未合併的 ARP、HT 接收和韌體修正
 尚未安裝；詳見 kernel/mainline/XR819-STATUS.md。
+
+
+## XR819 修正實測
+
+PR #31（ARP cipher）及 #34（HT RX metadata）已編譯並透過串口在 RAM 載入測試。
+未寫入 Flash。短測各版本的代理均正常；加載 16 MiB 雙向 SSH 傳輸及 20 次
+HTTPS 請求的兩分鐘測試中，修正版 ping 遺失 7/120，原版對照遺失 2/120。
+資料 SHA-256 全部一致，兩版本 HTTPS 都為 20/20 成功。無法證明穩定性改善，
+因此目前回到原版驅動，沒有永久套用。詳細數據與限制見 kernel/mainline/XR819-STATUS.md。
