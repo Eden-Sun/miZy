@@ -3,8 +3,8 @@
 ## Orange Pi Zero H2+ kernel upgrade
 
 This personal fork tracks a kernel upgrade while preserving miZy, XR819 Wi-Fi,
-and the HTTPS CONNECT proxy. **The device still runs Linux 3.4.113+; no new
-kernel has been flashed.**
+and the HTTPS CONNECT proxy. **Linux 6.12.113-mizy-h2plus is installed in SPI and has passed
+automatic reboot, Wi-Fi, DHCP, DNS, and HTTPS proxy verification.**
 
 See [current status and next steps](docs/kernel-upgrade/STATUS.md).
 The `kernel` submodule tracks [Eden-Sun/miZy-linux-kernel](https://github.com/Eden-Sun/miZy-linux-kernel).
